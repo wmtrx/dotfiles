@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <object class="GtkMenu" id="menu">
+    <child>
+        <object class="GtkMenuItem" id="musicdl">
+			<property name="label">  Download a song from clipboard</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="videodl">
+			<property name="label">  Download a video from clipboard</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="malarchive">
+			<property name="label">  Archive MyAnimeList</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="emojisearch">
+			<property name="label">  Emoji Search (Fn + F12)</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="colorpicker">
+			<property name="label">  Pick a color</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="killapp">
+			<property name="label">  Kill an application</property>
+        </object>
+	  </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="delimiter1">
+      <property name="visible">True</property>
+      <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuBar" id="delimiter2">
+      </object>
+    </child>
+    <child>
+        <object class="GtkMenuItem" id="exit">
+			<property name="label">󰩈  Exit</property>
+        </object>
+    </child>
+  </object>
+</interface>

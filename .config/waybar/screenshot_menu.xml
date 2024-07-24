@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <object class="GtkMenu" id="menu">
+    <child>
+        <object class="GtkMenuItem" id="ss">
+			<property name="label">󰹑  Take a screenshot (PrtSc)</property>
+        </object>
+	  </child>
+    <child>
+        <object class="GtkMenuItem" id="areass">
+			<property name="label">󱣴  Take an area screenshot (Shift + PrtSc)</property>
+        </object>
+	  </child>
+	  <child>
+	       <object class="GtkMenuItem" id="areassclipboard">
+	  		<property name="label">  Take an area screenshot (clipboard only) (Shift + Ctrl + PrtSc)</property>
+	       </object>
+	  </child>
+	   <child>
+        <object class="GtkMenuItem" id="ssdir">
+			<property name="label">  Open screenshot directory</property>
+        </object>
+	  </child>
+  </object>
+</interface>

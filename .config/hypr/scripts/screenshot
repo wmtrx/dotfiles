@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+if [ "$1" == "ss" ]; then
+    grim && hyprctl notify 5 4000 "rgb(0000ff)" " Screenshot saved in ~/Pictures/screenshots"
+elif [ "$1" == "areass" ]; then
+    XCURSOR_THEME=crosshair XCURSOR_SIZE=24 hyprshot -s -m region
+    hyprctl notify 5 4000 "rgb(0000ff)" " Screenshot saved in ~/Pictures/screenshots"
+elif [ "$1" == "areasscb" ]; then
+    XCURSOR_THEME=crosshair XCURSOR_SIZE=24 hyprshot -s -m region --clipboard-only
+    hyprctl notify 5 4000 "rgb(0000ff)" " Screenshot copied to clipboard"
+fi

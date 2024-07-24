@@ -1,0 +1,292 @@
+{
+  "layer": "top",
+    "output": "eDP-1",
+    "reload_style_on_change": true,
+    "position": "top",
+    "margin-bottom": 0,
+    "modules-left": [
+      "group/menuu",
+      "group/basicinfo",
+      "custom/notification",
+      "hyprland/workspaces",
+      ],
+    "modules-center": [
+      "hyprland/window",
+      ],
+    "modules-right": [
+      "group/hardware",
+      "network",
+      "group/screen",
+      "battery",
+    ],
+    "custom/screenshot": {
+    "format" : "<span font=\"Font Awesome 6 Free\"></span>",
+    "tooltip-format": "Take a screenshot",
+    "on-click": "/home/user/.config/hypr/scripts/screenshot ss",
+    "menu": "on-click-right",
+    "menu-file": "/home/user/.config/waybar/screenshot_menu.xml",
+    "menu-actions": {
+        "ss": "/home/user/.config/hypr/scripts/screenshot ss",
+        "areass": "/home/user/.config/hypr/scripts/screenshot areass",
+        "areassclipboard": "/home/user/.config/hypr/scripts/screenshot areasscb",
+        "ssdir": "hyprctl dispatch exec [floating] nemo \"~/Pictures/screenshots\"",
+      },
+    },
+    "custom/updates": {
+      "format": "<span font=\"Font Awesome 6 Free\"> </span> ",
+      "exec": "/home/user/.config/waybar/checkupdates.sh",
+      "interval": 3600,
+      "on-click": "hyprctl dispatch exec [floating] kitty \"yay -Syu\"",
+      "tooltip-format": "{}"
+    },
+    "tray": {
+      "icon-size": 15,
+      "spacing": 10
+    },
+    "custom/settings": {
+      "format" : "<span font=\"Font Awesome 6 Free\"></span>",
+      "tooltip": false,
+      "menu": "on-click",
+      "menu-file": "/home/user/.config/waybar/settings_menu.xml",
+      "menu-actions": {
+        "configurewaybar": "hyprctl dispatch exec [workspace new] xed \"~/.config/waybar/*\"",
+        "configuregtk": "hyprctl dispatch exec nwg-look",
+        "configureqt6": "hyprctl dispatch exec qt6ct",
+        "configurehypr": "hyprctl dispatch exec [workspace new] xed \"~/.config/hypr/*\"",
+      }
+    },
+    "custom/menu": {
+    "format" : "<span font=\"16px\">󰣇</span>",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "/home/user/.config/waybar/menu.xml",
+    "menu-actions": {
+        "exit": "wlogout --margin 265px 55px",
+        "emojisearch": "/home/user/bin/wofi-emoji",
+        "malarchive": "/home/user/.config/hypr/scripts/animelist-archive",
+        "videodl": "/home/user/.config/hypr/scripts/video-download",
+        "musicdl": "/home/user/.config/hypr/scripts/song-download",
+        "colorpicker": "/home/user/.config/hypr/scripts/colorpick",
+        "killapp": "XCURSOR_THEME=crosshair XCURSOR_SIZE=24 hyprctl kill",
+      },
+    },
+    "group/menuu": {
+      "orientation": "horizontal",
+      "drawer": {
+        "click-to-reveal": true,
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": true,
+       },
+      "modules": [
+        "custom/menu",
+        "custom/settings",
+        "custom/updates",
+        "custom/screenshot",
+        "custom/screenrecorder",
+        "tray",
+      ]
+    },
+    "group/basicinfo": {
+		"orientation": "horizontal",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": true,
+       },
+		"modules": [
+			"clock#time",
+      "clock#date",
+			"custom/weather",
+	  	]
+  	},
+    "group/hardware": {
+		"orientation": "horizontal",
+      "drawer": {
+        "click-to-reveal": true,
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false,
+       },
+		"modules": [
+			"disk",
+			"memory",
+      "cpu",
+      "temperature",
+	  	]
+  	},
+    "custom/stopwatch": {
+    "exec": "/home/user/.config/waybar/stopwatch start",
+    "format": "{}",
+    "interval": 1,
+    "return-type": "json",
+    "on-click": "/home/user/.config/waybar/stopwatch restart"
+    },
+    "custom/screenrecorder": {
+    "exec": "$HOME/.config/waybar/waybar-screenrecorder/screenrecorder status",
+    "interval": "once",
+    "signal": 1,
+    "return-type": "json",
+    "tooltip": true,
+    "format": "<span font=\"Font Awesome 6 Free\">{}</span>",
+    "on-click": "$HOME/.config/waybar/waybar-screenrecorder/screenrecorder toggle fullscreen",
+    "on-click-right": "$HOME/.config/waybar/waybar-screenrecorder/screenrecorder toggle region"
+    },
+    "group/screen": {
+		"orientation": "horizontal",
+    "drawer": {
+        "click-to-reveal": true,
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false,
+       },
+		"modules": [
+			"pulseaudio",
+			"backlight",
+      "custom/hyprshade",
+	  	]
+  	},
+    "custom/hyprshade": {
+      "format": "<span font=\"Font Awesome 6 Free\">{}</span>",
+      "exec": "sleep 0.5; ~/.config/waybar/screen.sh",
+      "tooltip-format": "Toggle blue light filter",
+      "interval": 2,
+      "on-scroll-down": "brightnessctl -c backlight set 1%-",
+      "on-scroll-up": "brightnessctl -c backlight set +1%",
+      "on-click": "hyprshade on vibrance",
+      "on-click-right": "hyprshade on blue-light-filter"
+    },
+    "custom/weather": {
+    "format": "{}°C",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --location 'Your location' --lang pl",
+    "return-type": "json"
+    },
+    "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+    "notification": "󱅫",
+    "none": "",
+    "dnd-notification": " ",
+    "dnd-none": "󰂛",
+    "inhibited-notification": " ",
+    "inhibited-none": "",
+    "dnd-inhibited-notification": " ",
+    "dnd-inhibited-none": " ",
+      },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true,
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "rewrite": {
+          "(.*) — Mozilla Firefox": "<span font='15px' color=\"orangered\">󰈹</span>  $1",
+          "(.*) — Mozilla Firefox Private Browsing": "<span font='15px' color=\"#9f00c5\">󰗹</span>  $1",
+          "(.*) - VSCodium": "<span font='15px' color=\"lightblue\"></span>  $1",
+          "Search...": "<span color=\"#a855f7\"></span>  Search...",
+          "(.*) - mpv": "<span font='15px' color=\"#9f00c5\"></span>  $1"
+      },
+      "separate-outputs": false
+    },
+    "hyprland/workspaces": {
+      "format": "<span rise='-9000'>{name}</span>",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1"
+    },
+    "backlight": {
+    "format": "{percent}%",
+    "device": "intel_backlight",
+    "tooltip-format": "Adjust brightness",
+    "on-click": "hyprshade on vibrance",
+    "on-click-right": "hyprshade on blue-light-filter",
+    "on-scroll-down": "brightnessctl -c backlight set 1%-",
+    "on-scroll-up": "brightnessctl -c backlight set +1%"
+  },
+  "disk": {
+	  "interval": 60,
+	  "format": "<span font=\"Font Awesome 6 Free\"></span> {specific_free:0.1f}GB",
+    "path": "/",
+    "on-click": "hyprctl dispatch exec nemo",
+    "on-click-right": "hyprctl dispatch exec gnome-system-monitor",
+	  "unit": "GB"
+    },
+    "network": {
+      "interface": "wlp4s0",
+      "tooltip-format": "SSID: {essid} ({signalStrength}%)\nInterface: {ifname}\n {bandwidthDownBits}\n {bandwidthUpBits}",
+      "format-disconnected": "{essid}   ",
+      "interval": 2,
+      "format-wifi": "{essid}  ",
+      "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"], 
+      "format-ethernet": "",
+      "on-click": "hyprctl dispatch exec nm-connection-editor",
+    },
+     "battery": {
+        "format": "{capacity}% <span font=\"Font Awesome 6 Free\">{icon}</span>",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-full": "Full <span font=\"Font Awesome 6 Free\"></span>",
+        "format-plugged": "{capacity}%<span font=\"Font Awesome 6 Free\"> </span>", // color='#FFC94A'
+        "format-charging": "{capacity}%<span font=\"Font Awesome 6 Free\"> </span>",
+        "interval": 2,
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+        "tooltip": "Time left: {time}",
+    },
+    "temperature": {
+      "format": "{icon} {temperatureC}°C",
+      "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+      "critical-threshold": 80,
+      "format-icons": ["", "", ""],
+      "tooltip": false,
+    },
+    "memory": {
+      "format": " {}%",
+      "tooltip-format": "{used:0.2f}GiB/{total:0.2f}GiB\n{swapUsed:0.2f}Gib/{swapTotal:0.2f}GiB",
+    },
+    "cpu": {
+      "format": "  {usage}%",
+      "tooltip": "false",
+    },
+    "pulseaudio": {
+      "format": "{volume}% <span font=\"Font Awesome 6 Free\">{icon} {format_source}</span>",
+      "format-bluetooth": "{volume}% <span font=\"Font Awesome 6 Free\">{icon}  {format_source}</span>",
+      "format-source": "",
+      "format-source-muted": "",
+      "format-muted": "<span font=\"Font Awesome 6 Free\"> {format_source}</span>",
+      "format-icons": {
+          "headphone": "",
+          "hands-free": "",
+          "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol",
+      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "clock#time": {
+      "format": "<span font=\"Font Awesome 6 Free\"></span> {:L%H:%M:%S}",
+      "interval": 1,
+      "locale": "pl_PL.UTF-8",
+      "tooltip": true,
+      "tooltip-format": "{:L%A, %d %B %Y, %H:%M}"
+    },
+    "clock#date": {
+      "format": "<span font=\"Font Awesome 6 Free\"></span> {:L%e %B %Y}",
+      "interval": 60,
+      "locale": "pl_PL.UTF-8",
+      "tooltip": true,
+      "tooltip-format": "{:L%A, %d %B %Y, %H:%M}"
+    }
+}
+

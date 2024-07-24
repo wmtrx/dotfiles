@@ -1,0 +1,6 @@
+#!/bin/env bash
+if /home/user/bin/mal-archive.py; then
+  hyprctl notify 5 4000 "rgb(0000ff)" " MAL lists saved in ~/Downloads/anime-list"
+else
+  hyprctl notify 3 4000 "rgb(ff0000)" " Error while archiving MyAnimeList"
+fi

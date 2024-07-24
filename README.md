@@ -7,11 +7,15 @@ yay -S waybar-git \
        wlogout \
        wofi \
        hyprshade \
+       hyprpicker \
        hyprshot \
        hypridle \
        swaync \
        swaybg \
-       nordic-darker-theme
+       nordic-darker-theme \
+       nwg-look \
+       qt6ct \
+       capitaine-cursors
 ```
 ```
 git clone https://github.com/wmtrx/dotfiles

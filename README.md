@@ -1,4 +1,3 @@
-# My dotfiles for Hyprland on Arch Linux
 ## Installation
 ```
 yay -S waybar-git \

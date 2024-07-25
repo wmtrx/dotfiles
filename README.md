@@ -21,6 +21,8 @@ git clone https://github.com/wmtrx/dotfiles
 mv -f dotfiles/.config/* ~/.config
 rm -r dotfiles
 ```
+You need Font Awesome 5 Free and Nerd Fonts so everything displays correctly.
+
 [Wallpaper shown in the screenshots and other similar ones can be found here.](https://github.com/linuxdotexe/nordic-wallpapers)
 
 ## Screenshots

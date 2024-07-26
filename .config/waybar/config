@@ -61,7 +61,7 @@
     "menu": "on-click",
     "menu-file": "/home/user/.config/waybar/menu.xml",
     "menu-actions": {
-        "exit": "wlogout --margin 265px 55px",
+        "exit": "wlogout -m 260px 70px",
         "emojisearch": "/home/user/bin/wofi-emoji",
         "malarchive": "/home/user/.config/hypr/scripts/animelist-archive",
         "videodl": "/home/user/.config/hypr/scripts/video-download",
@@ -115,13 +115,6 @@
       "temperature",
 	  	]
   	},
-    "custom/stopwatch": {
-    "exec": "/home/user/.config/waybar/stopwatch start",
-    "format": "{}",
-    "interval": 1,
-    "return-type": "json",
-    "on-click": "/home/user/.config/waybar/stopwatch restart"
-    },
     "custom/screenrecorder": {
     "exec": "$HOME/.config/waybar/waybar-screenrecorder/screenrecorder status",
     "interval": "once",
@@ -160,7 +153,7 @@
     "format": "{}°C",
     "tooltip": true,
     "interval": 3600,
-    "exec": "wttrbar --location 'Your location' --lang pl",
+    "exec": "wttrbar --location 'Your location'",
     "return-type": "json"
     },
     "custom/notification": {
@@ -277,14 +270,14 @@
     "clock#time": {
       "format": "<span font=\"Font Awesome 6 Free\"></span> {:L%H:%M:%S}",
       "interval": 1,
-      "locale": "pl_PL.UTF-8",
+      "locale": "en_US.UTF-8",
       "tooltip": true,
       "tooltip-format": "{:L%A, %d %B %Y, %H:%M}"
     },
     "clock#date": {
       "format": "<span font=\"Font Awesome 6 Free\"></span> {:L%e %B %Y}",
       "interval": 60,
-      "locale": "pl_PL.UTF-8",
+      "locale": "en_US.UTF-8",
       "tooltip": true,
       "tooltip-format": "{:L%A, %d %B %Y, %H:%M}"
     }

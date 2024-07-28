@@ -258,7 +258,7 @@
 
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
-  background: rgba(20, 20, 27, 0.7);
+  background: rgba(30, 34, 42, 0.7);
   color: @text-color;
   border-radius: 6px;
   /* border: solid rgba(2, 221, 249, 1.0) 1px;*/

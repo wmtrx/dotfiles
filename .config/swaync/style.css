@@ -1,11 +1,11 @@
-@define-color cc-bg rgba(46, 46, 46, 0.7);
+@define-color cc-bg rgba(20, 40, 66, 0.7);
 @define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg rgba(20, 20, 27, 0.7);
-@define-color noti-bg-opaque rgb(48, 48, 48);
-@define-color noti-bg-darker rgb(38, 38, 38);
-@define-color noti-bg-hover rgba(30, 30, 37, 0.7);
-@define-color noti-bg-hover-opaque rgb(56, 56, 56);
-@define-color noti-bg-focus rgba(68, 68, 68, 0.6);
+@define-color noti-bg rgba(20, 40, 68, 0.8);
+@define-color noti-bg-opaque rgb(20, 40, 68);
+@define-color noti-bg-darker rgb(20, 40, 68);
+@define-color noti-bg-hover rgba(20, 40, 56, 0.9);
+@define-color noti-bg-hover-opaque rgb(20, 40, 66);
+@define-color noti-bg-focus rgba(20, 40, 66, 0.6);
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
@@ -16,7 +16,7 @@
 }
 
 .notification-row:focus, .notification-row:hover {
-  background: rgba(30, 30, 37, 0.7);
+  background: @noti-bg-focus;
 }
 
 .notification-row .notification-background {
@@ -25,11 +25,13 @@
 
 .notification-row .notification-background .close-button {
   /* The notification Close Button */
-  background: rgba(20, 20, 27, 0.5);
+  background: @noti-close-bg;
   color: @text-color;
   text-shadow: none;
   padding: 0;
   border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
   box-shadow: none;
   border: none;
   min-width: 24px;
@@ -38,7 +40,7 @@
 
 .notification-row .notification-background .close-button:hover {
   box-shadow: none;
-  background: rgba(20, 20, 27, 0.9);
+  background: @noti-close-bg-hover;
   transition: background 0.15s ease-in-out;
   border: none;
 }
@@ -158,7 +160,7 @@
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-entry {
-  background: rgba(20, 20, 27, 0.8);
+  background: @noti-bg-darker;
   color: @text-color;
   caret-color: @text-color;
   border: 1px solid @noti-border-color;
@@ -167,7 +169,7 @@
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
   margin-left: 4px;
-  background: rgba(20, 20, 27, 0.6);
+  background: @noti-bg;
   border: 1px solid @noti-border-color;
   border-radius: 12px;
   color: @text-color;
@@ -181,7 +183,7 @@
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button:hover {
-  background: rgba(20, 20, 27, 0.8);
+  background: @noti-bg-hover;
 }
 
 .notification-row .notification-background .notification .notification-action {
@@ -239,7 +241,7 @@
 }
 
 .notification-group.collapsed .notification-row .notification {
-  background-color: rgba(20, 20, 27, 0.7);
+  background-color: @noti-bg-opaque;
 }
 
 .notification-group.collapsed .notification-row:not(:last-child) {
@@ -253,16 +255,16 @@
 }
 
 .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
-  background-color: rgba(30, 30, 37, 0.7);
+  background-color: @noti-bg-hover-opaque;
 }
 
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
-  background: rgba(30, 34, 42, 0.7);
+  background: @cc-bg;
   color: @text-color;
   border-radius: 6px;
-  /* border: solid rgba(2, 221, 249, 1.0) 1px;*/
-  margin: 5px 10px 10px 5px;
+  border: solid 1px #09A4C9;
+  margin: 5px 0px 10px 5px;
 }
 
 .control-center .control-center-list-placeholder {
@@ -314,14 +316,14 @@
   font-size: initial;
   color: @text-color;
   text-shadow: none;
-  background: rgba(20, 20, 27, 0.7);
+  background: @noti-bg;
   border: 1px solid @noti-border-color;
   box-shadow: none;
   border-radius: 12px;
 }
 
 .widget-title > button:hover {
-  background: rgba(30, 30, 37, 0.7);
+  background: @noti-bg-hover;
 }
 
 /* DND widget */
@@ -334,7 +336,7 @@
 .widget-dnd > switch {
   font-size: initial;
   border-radius: 12px;
-  background: rgba(20, 20, 27, 0.7);
+  background: @noti-bg;
   border: 1px solid @noti-border-color;
   box-shadow: none;
 }
